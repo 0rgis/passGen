@@ -72,4 +72,5 @@ The Password Generator script offers an interactive command-line interface. Foll
 
 8. Example
 
-![ghubMD](https://github.com/0rgis/PasswdGen/assets/31127560/6a6ee26d-4ddb-4a73-9ff5-ce11cb9da2db)
+![ghubMD](https://github.com/0rgis/passGen/assets/31127560/5b5f6c09-58bc-4e14-ab7b-4147238ec3dd)
+
