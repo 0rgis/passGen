@@ -2,12 +2,15 @@ import random
 import string
 import re
 
-def generate_password(length):
-    characters = string.ascii_letters + string.digits + string.punctuation
+def get_custom_character_set():
+    custom_set = input("Enter your custom character set (leave blank to use the default set): ").strip()
+    return custom_set if custom_set else None
+
+def generate_password(length, characters):
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
 
-def generate_passwords(num_passwords, length, min_uppercase=1, min_lowercase=1, min_digits=1, min_symbols=1, use_ambiguous=False):
+def generate_passwords(num_passwords, length, min_uppercase=1, min_lowercase=1, min_digits=1, min_symbols=1, use_ambiguous=False, custom_set=None):
     characters = ''
 
     if min_uppercase > 0:
@@ -27,6 +30,10 @@ def generate_passwords(num_passwords, length, min_uppercase=1, min_lowercase=1, 
         # Exclude ambiguous characters
         ambiguous_characters = "lIO01"
         characters = ''.join(char for char in characters if char not in ambiguous_characters)
+
+    # Include the custom character set if provided
+    if custom_set:
+        characters += custom_set
 
     passwords = []
 
@@ -48,8 +55,8 @@ def generate_passwords(num_passwords, length, min_uppercase=1, min_lowercase=1, 
 
     return passwords
 
-def generate_and_save_passwords(num_passwords, length, min_uppercase=1, min_lowercase=1, min_digits=1, min_symbols=1, use_ambiguous=False, file_path="passwords.txt"):
-    passwords = generate_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous)
+def generate_and_save_passwords(num_passwords, length, min_uppercase=1, min_lowercase=1, min_digits=1, min_symbols=1, use_ambiguous=False, custom_set=None, file_path="passwords.txt"):
+    passwords = generate_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set)
 
     if passwords:
         with open(file_path, "w") as file:
@@ -59,18 +66,6 @@ def generate_and_save_passwords(num_passwords, length, min_uppercase=1, min_lowe
         print(f"Passwords saved to {file_path}")
     else:
         print("No passwords generated.")
-
-def generate_and_save_passwords_interactive():
-    num_passwords = int(input("Enter the number of passwords to generate: "))
-    length = int(input("Enter the length of each password: "))
-    min_uppercase = int(input("Enter the minimum number of uppercase letters: "))
-    min_lowercase = int(input("Enter the minimum number of lowercase letters: "))
-    min_digits = int(input("Enter the minimum number of digits: "))
-    min_symbols = int(input("Enter the minimum number of symbols: "))
-    use_ambiguous = input("Include ambiguous characters? (y/n): ").lower() == 'y'
-    file_path = input("Enter the file path to save passwords (press Enter for default 'passwords.txt'): ").strip() or "passwords.txt"
-
-    generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, file_path)
 
 def check_password_strength(password):
     length_criteria = len(password) >= 8
@@ -84,6 +79,30 @@ def check_password_strength(password):
 
     return strength_score
 
-# Example usage:
+def get_user_options():
+    length = int(input("Enter the password length: "))
+    min_uppercase = int(input("Enter the minimum number of uppercase letters: "))
+    min_lowercase = int(input("Enter the minimum number of lowercase letters: "))
+    min_digits = int(input("Enter the minimum number of digits: "))
+    min_symbols = int(input("Enter the minimum number of symbols: "))
+    use_ambiguous = input("Include ambiguous characters? (y/n): ").lower() == 'y'
+    custom_set = get_custom_character_set()
+    file_path = input("Enter the file path to save passwords (press Enter for default 'passwords.txt'): ").strip() or "passwords.txt"
+
+    return length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path
+
+def main():
+    while True:
+        print("Choose password generation options:")
+        length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path = get_user_options()
+        num_passwords = int(input("Enter the number of passwords to generate: "))
+
+        generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path)
+
+        repeat = input("Do you want to generate passwords again? (y/n): ").lower()
+        if repeat != 'y':
+            break
+
 if __name__ == "__main__":
-    generate_and_save_passwords_interactive()
+    main()
+    input("Press Enter to exit...")
