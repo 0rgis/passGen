@@ -1,4 +1,4 @@
-# passGen
+# passGen 
 
 This Python script generates random passwords based on user-defined criteria, providing a flexible and interactive way to create secure passwords for various purposes.
 
@@ -70,4 +70,8 @@ The Password Generator script offers an interactive command-line interface. Foll
 8. Example
 
 ![ghubMD](https://github.com/0rgis/passGen/assets/31127560/5b5f6c09-58bc-4e14-ab7b-4147238ec3dd)
+
+
+
+
 
