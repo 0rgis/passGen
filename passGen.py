@@ -85,7 +85,13 @@ def get_user_options():
     username = os.getenv('USER')  # Get the Linux username
     print(f"Hello, {username}!")
 
-    length = int(input("Enter the password length: "))
+    while True:
+        length = int(input("Enter the password length (minimum 8 characters): "))
+        if length >= 8:
+            break
+        else:
+            print("Error: Password length must be at least 8 characters.")
+
     min_uppercase = int(input("Enter the minimum number of uppercase letters: "))
     min_lowercase = int(input("Enter the minimum number of lowercase letters: "))
     min_digits = int(input("Enter the minimum number of digits: "))
