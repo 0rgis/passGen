@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import os
 import random
 import string
 import re
@@ -82,6 +82,9 @@ def check_password_strength(password):
     return strength_score
 
 def get_user_options():
+    username = os.getenv('USER')  # Get the Linux username
+    print(f"Hello, {username}!")
+
     length = int(input("Enter the password length: "))
     min_uppercase = int(input("Enter the minimum number of uppercase letters: "))
     min_lowercase = int(input("Enter the minimum number of lowercase letters: "))
