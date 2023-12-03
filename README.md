@@ -1,4 +1,7 @@
-<img src="https://github.com/0rgis/passGen/assets/31127560/a5e323f5-c0a4-454f-842c-bca583050cbe" width="200"/><br>
+<!-- <img src="https://github.com/0rgis/passGen/assets/31127560/a5e323f5-c0a4-454f-842c-bca583050cbe" width="200"/><br> -->
+<!-- ![oie_jpg](https://github.com/0rgis/passGen/assets/31127560/009d9573-c958-4908-953d-86a9e4276f67" ) -->
+<img src="https://github.com/0rgis/passGen/assets/31127560/009d9573-c958-4908-953d-86a9e4276f67" width="200"/><br>
+
 # passGen
 
 This Python script generates random passwords based on user-defined criteria, providing a flexible and interactive way to create secure passwords for various purposes.
