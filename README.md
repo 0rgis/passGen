@@ -27,21 +27,19 @@ Once Python is installed, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/password-generator.git
+   git clone https://github.com/0rgis/passGen.git
    ```
-
-   Replace `your-username` with your GitHub username.
 
 2. Change into the project directory:
 
    ```bash
-   cd password-generator
+   cd passGen
    ```
 
 3. Run the script:
 
    ```bash
-   python password_generator.py
+   python passGen.py
    ```
 
 ## Usage
@@ -53,18 +51,17 @@ The Password Generator script offers an interactive command-line interface. Foll
 2. Navigate to the directory where you cloned the repository:
 
    ```bash
-   cd path/to/password-generator
-   ```
+   cd path/to/passGen
 
 3. Run the script:
 
    ```bash
-   python password_generator.py
+   python3 passGen.py
    ```
 
 4. Enter options for password generation, such as length, minimum uppercase letters, minimum lowercase letters, minimum digits, minimum symbols, and whether to include ambiguous characters.
 
-5. The script will generate the specified number of passwords and save them to a file (default: `passwords.txt`).
+5. The script will generate the specified number of passwords and save them to a file (default: `passwords.txt`), no need for a file extension either.
 
 6. If you choose to repeat the password generation, the script will prompt you to enter the number of passwords for each run.
 
