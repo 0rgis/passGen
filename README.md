@@ -14,7 +14,7 @@ This Python script generates random passwords based on user-defined criteria, pr
 - **Password Saving:** Save generated passwords to a file for easy access.
 - **Password Strength Checking:** Check password strength based on length, character types, and repeating patterns.
 - **Interactive User Prompts:** Easily customize password generation options through interactive prompts.
-- **Argument User Prompts:** Easily customize password generation options through interactive prompts.
+- **Argument User Prompts:** Easily customize password generation options using arguments.
 - **Custom Character Set:** Now you can provide a custom character set to be included in password generation.
 
 ## Table of Contents
