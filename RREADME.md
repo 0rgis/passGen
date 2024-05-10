@@ -14,6 +14,7 @@ This Python script generates random passwords based on user-defined criteria, pr
 - **Password Saving:** Save generated passwords to a file for easy access.
 - **Password Strength Checking:** Check password strength based on length, character types, and repeating patterns.
 - **Interactive User Prompts:** Easily customize password generation options through interactive prompts.
+- **Argument User Prompts:** Easily customize password generation options through interactive prompts.
 - **Custom Character Set:** Now you can provide a custom character set to be included in password generation.
 
 ## Table of Contents
@@ -49,6 +50,71 @@ Once Python is installed, follow these steps:
    ```bash
    python passGen.py
    ```
+
+You can also choose to run the script within a virtual environment to manage dependencies and ensure isolation from your system's Python installation.
+
+### Installing and Running in a Virtual Environment
+
+1. Create a new directory for your project:
+
+   ```bash
+   mkdir passGen_project
+   cd passGen_project
+   ```
+
+2. Create a virtual environment within the project directory:
+
+   ```bash
+   python3 -m venv venv
+   ```
+
+3. Activate the virtual environment:
+
+   On macOS and Linux:
+
+   ```bash
+   source venv/bin/activate
+   ```
+
+   On Windows:
+
+   ```bash
+   venv\Scripts\activate
+   ```
+
+   Your terminal prompt should now indicate that you are working within the virtual environment.
+
+4. Clone the PassGen repository into the project directory:
+
+   ```bash
+   git clone https://github.com/0rgis/passGen.git
+   ```
+
+5. Change into the PassGen directory:
+
+   ```bash
+   cd passGen
+   ```
+
+6. Install the dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+7. You can now run the PassGen script as usual:
+
+   ```bash
+   python passGen.py
+   ```
+
+8. When you're finished using PassGen, you can deactivate the virtual environment:
+
+   ```bash
+   deactivate
+   ```
+
+This setup allows you to keep PassGen and its dependencies isolated from other projects on your system.
 
 ## Usage
 
