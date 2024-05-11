@@ -98,7 +98,7 @@ You can also choose to run the script within a virtual environment to manage dep
    cd passGen
    ```
 
-6. You can now run the PassGen script as usual:
+6. You can now run the passGen script as usual:
 
    ```bash
    python passGen.py
