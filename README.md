@@ -161,7 +161,7 @@ Alternatively, you can use command-line arguments to customize password generati
 Example usage:
 
 ```bash
-python3 passGen.py --length 12 --min_uppercase 2 --min_lowercase 2 --min_digits 2 --min_symbols 2 --ambiguous y --custom_set "!@#$%" --num_passwords 5 --file_path my_passwords.txt
+python3 passGen.py -l 12 -u 2 -w 2 -d 2 -s 2 -a -n 5 -f my_passwords.txt
 ```
 
 This command will generate 5 passwords of length 12 with at least 2 uppercase letters, 2 lowercase letters, 2 digits, and 2 symbols (including ambiguous characters) using the custom set "!@#$%", and save them to the file `my_passwords.txt`.
