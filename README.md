@@ -98,19 +98,13 @@ You can also choose to run the script within a virtual environment to manage dep
    cd passGen
    ```
 
-6. Install the dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-7. You can now run the PassGen script as usual:
+6. You can now run the PassGen script as usual:
 
    ```bash
    python passGen.py
    ```
 
-8. When you're finished using PassGen, you can deactivate the virtual environment:
+7. When you're finished using PassGen, you can deactivate the virtual environment:
 
    ```bash
    deactivate
