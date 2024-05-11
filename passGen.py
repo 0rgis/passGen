@@ -5,6 +5,19 @@ import re
 import string
 import sys
 
+def print_banner():
+    banner = """
+                     _____            
+                    |  __ \           
+ _ __   __ _ ___ ___| |  \/ ___ _ __  
+| '_ \ / _` / __/ __| | __ / _ \ '_ \ 
+| |_) | (_| \__ \__ \ |_\ \  __/ | | |
+| .__/ \__,_|___/___/\____/\___|_| |_|
+| |                                   
+|_|                                   
+    """
+    print(banner)
+
 def get_custom_character_set():
     custom_set = input("Enter your custom character set (leave blank to use the default set): ").strip()
     return custom_set if custom_set else None
@@ -62,15 +75,21 @@ def generate_and_save_passwords(num_passwords, length, min_uppercase=1, min_lowe
     passwords = generate_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set)
 
     if passwords:
-        with open(file_path, "w") as file:
-            for password in passwords:
-                file.write(password + "\n")
+        save_passwords = input("Do you want to save the generated passwords to a file? (y/n): ").lower()
+        if save_passwords == 'y' or save_passwords == 'yes':
+            with open(file_path, "w") as file:
+                for password in passwords:
+                    file.write(password + "\n")
 
-        print(f"Passwords saved to {file_path}")
+            print(f"Passwords saved to {file_path}")
+        else:
+            print("Passwords were not saved.")
     else:
         print("No passwords generated.")
 
 def main():
+    print_banner()
+
     parser = argparse.ArgumentParser(description='Generate passwords.')
     parser.add_argument('-n', '--number', type=int, help='Number of passwords to generate')
     parser.add_argument('-l', '--length', type=int, help='Length of the passwords')
@@ -79,46 +98,45 @@ def main():
     parser.add_argument('-d', '--digits', type=int, help='Minimum number of digits')
     parser.add_argument('-s', '--symbols', type=int, help='Minimum number of symbols')
     parser.add_argument('-c', '--custom', action='store_true', help='Use custom character set')
+    parser.add_argument('-a', '--ambiguous', action='store_true', help='Include ambiguous characters')
     parser.add_argument('-f', '--file', help='File path to save passwords')
     args = parser.parse_args()
 
-    if len(sys.argv) == 1 or any(vars(args).values()):  # Check if no arguments or any arguments are provided
-        if any(vars(args).values()):
-            num_passwords = args.number or 1
-            length = args.length or 12
-            min_uppercase = args.uppercase or 1
-            min_lowercase = args.lowercase or 1
-            min_digits = args.digits or 1
-            min_symbols = args.symbols or 1
-            use_custom = args.custom
-            file_path = args.file or "passwords.txt"
-            generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_custom, file_path)
-        else:
-            while True:
-                print("Choose password generation options:")
-                length = int(input("Enter the password length (minimum 8 characters): "))
-                if length >= 8:
-                    break
-                else:
-                    print("Error: Password length must be at least 8 characters.")
-
-            min_uppercase = int(input("Enter the minimum number of uppercase letters: "))
-            min_lowercase = int(input("Enter the minimum number of lowercase letters: "))
-            min_digits = int(input("Enter the minimum number of digits: "))
-            min_symbols = int(input("Enter the minimum number of symbols: "))
-            use_ambiguous = input("Include ambiguous characters? (y/n): ").lower() == 'y'
-            custom_set = get_custom_character_set()
-            file_path = input("Enter the file path to save passwords (press Enter for default 'passwords.txt'): ").strip() or "passwords.txt"
-
-            num_passwords = int(input("Enter the number of passwords to generate: "))
-
-            generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path)
-
-            repeat = input("Do you want to generate passwords again? (y/n): ").lower()
-            if repeat != 'y':
-                return
+    if any(vars(args).values()):
+        num_passwords = args.number or 1
+        length = args.length or 12
+        min_uppercase = args.uppercase or 1
+        min_lowercase = args.lowercase or 1
+        min_digits = args.digits or 1
+        min_symbols = args.symbols or 1
+        use_custom = args.custom
+        use_ambiguous = args.ambiguous
+        file_path = args.file or "passwords.txt"
+        generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, use_custom, file_path)
     else:
-        print("Invalid arguments provided. Use '-h' for help.")
+        while True:
+            print("Choose password generation options:")
+            length = int(input("Enter the password length (minimum 8 characters): "))
+            if length >= 8:
+                break
+            else:
+                print("Error: Password length must be at least 8 characters.")
+
+        min_uppercase = int(input("Enter the minimum number of uppercase letters: "))
+        min_lowercase = int(input("Enter the minimum number of lowercase letters: "))
+        min_digits = int(input("Enter the minimum number of digits: "))
+        min_symbols = int(input("Enter the minimum number of symbols: "))
+        use_ambiguous = input("Include ambiguous characters? (y/n): ").lower() == 'y'
+        custom_set = get_custom_character_set()
+        file_path = input("Enter the file path to save passwords (press Enter for default 'passwords.txt'): ").strip() or "passwords.txt"
+
+        num_passwords = int(input("Enter the number of passwords to generate: "))
+
+        generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path)
+
+        repeat = input("Do you want to generate passwords again? (y/n): ").lower()
+        if repeat != 'y':
+            return
 
 if __name__ == "__main__":
     main()
