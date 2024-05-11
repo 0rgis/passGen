@@ -75,8 +75,7 @@ def generate_and_save_passwords(num_passwords, length, min_uppercase=1, min_lowe
     passwords = generate_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set)
 
     if passwords:
-        save_passwords = input("Do you want to save the generated passwords to a file? (y/n): ").lower()
-        if save_passwords == 'y' or save_passwords == 'yes':
+        if file_path:
             with open(file_path, "w") as file:
                 for password in passwords:
                     file.write(password + "\n")
@@ -102,6 +101,10 @@ def main():
     parser.add_argument('-f', '--file', help='File path to save passwords')
     args = parser.parse_args()
 
+    save_to_file = False
+    file_path = None
+    custom_set = None  # Initialize custom_set
+
     if any(vars(args).values()):
         num_passwords = args.number or 1
         length = args.length or 12
@@ -112,7 +115,7 @@ def main():
         use_custom = args.custom
         use_ambiguous = args.ambiguous
         file_path = args.file or "passwords.txt"
-        generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, use_custom, file_path)
+        save_to_file = True
     else:
         while True:
             print("Choose password generation options:")
@@ -128,15 +131,20 @@ def main():
         min_symbols = int(input("Enter the minimum number of symbols: "))
         use_ambiguous = input("Include ambiguous characters? (y/n): ").lower() == 'y'
         custom_set = get_custom_character_set()
-        file_path = input("Enter the file path to save passwords (press Enter for default 'passwords.txt'): ").strip() or "passwords.txt"
+
+        save_passwords = input("Do you want to save the generated passwords to a file? (y/n): ").lower()
+        if save_passwords == 'y' or save_passwords == 'yes':
+            file_path = input("Enter the file path to save passwords (press Enter for default 'passwords.txt'): ").strip() or "passwords.txt"
+            save_to_file = True
 
         num_passwords = int(input("Enter the number of passwords to generate: "))
 
-        generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path)
+    generate_and_save_passwords(num_passwords, length, min_uppercase, min_lowercase, min_digits, min_symbols, use_ambiguous, custom_set, file_path)
 
+    if not save_to_file:
         repeat = input("Do you want to generate passwords again? (y/n): ").lower()
-        if repeat != 'y':
-            return
+        if repeat == 'y':
+            main()
 
 if __name__ == "__main__":
     main()
