@@ -86,13 +86,13 @@ You can also choose to run the script within a virtual environment to manage dep
 
    Your terminal prompt should now indicate that you are working within the virtual environment.
 
-4. Clone the PassGen repository into the project directory:
+4. Clone the passGen repository into the project directory:
 
    ```bash
    git clone https://github.com/0rgis/passGen.git
    ```
 
-5. Change into the PassGen directory:
+5. Change into the passGen directory:
 
    ```bash
    cd passGen
@@ -104,13 +104,13 @@ You can also choose to run the script within a virtual environment to manage dep
    python passGen.py
    ```
 
-7. When you're finished using PassGen, you can deactivate the virtual environment:
+7. When you're finished using passGen, you can deactivate the virtual environment:
 
    ```bash
    deactivate
    ```
 
-This setup allows you to keep PassGen and its dependencies isolated from other projects on your system.
+This setup allows you to keep passGen and its dependencies isolated from other projects on your system.
 
 ## Usage
 
