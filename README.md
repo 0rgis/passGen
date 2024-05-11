@@ -6,6 +6,17 @@
 
 This Python script generates random passwords based on user-defined criteria, providing a flexible and interactive way to create secure passwords for various purposes.
 
+## Table of Contents
+
+- [passGen](#passgen)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Installation](#installation)
+    - [Installing and Running in a Virtual Environment](#installing-and-running-in-a-virtual-environment)
+  - [Usage](#usage)
+    - [Interactive Mode](#interactive-mode)
+    - [Command-Line Arguments](#command-line-arguments)
+
 ## Features
 
 - **Password Length Customization:** Choose the desired length of the generated passwords.
@@ -16,16 +27,6 @@ This Python script generates random passwords based on user-defined criteria, pr
 - **Interactive User Prompts:** Easily customize password generation options through interactive prompts.
 - **Argument User Prompts:** Easily customize password generation options using arguments.
 - **Custom Character Set:** Now you can provide a custom character set to be included in password generation.
-
-## Table of Contents
-
-- [passGen](#passgen)
-  - [Features](#features)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-    - [Interactive Mode](#interactive-mode)
-    - [Command-Line Arguments](#command-line-arguments)
 
 ## Installation
 
