@@ -4,7 +4,8 @@
 
 # passGen
 
-This Python script generates random passwords based on user-defined criteria, providing a flexible and interactive way to create secure passwords for various purposes.
+This Python script generates random passwords based on user-defined criteria, providing a flexible and interactive way to create secure passwords you can run it interactively by just running it or supply arguments.
+If no arguments are supplied it will run in interactive mode.
 
 ## Table of Contents
 
@@ -151,17 +152,17 @@ The Password Generator script offers an interactive command-line interface. Foll
 
 ### Command-Line Arguments
 
-Alternatively, you can use command-line arguments to customize password generation without the need for interactive prompts. Here's the list of available arguments:
+Alternatively, you can use command-line arguments to customize password generation without the need for interactive prompts, also you do not need to enter all arguments, Here's the list of available arguments:
 
-- `--length`: Specify the length of the generated passwords.
-- `--min_uppercase`: Specify the minimum number of uppercase letters.
-- `--min_lowercase`: Specify the minimum number of lowercase letters.
-- `--min_digits`: Specify the minimum number of digits.
-- `--min_symbols`: Specify the minimum number of symbols.
-- `--ambiguous`: Include ambiguous characters (use 'y' for yes, 'n' for no).
-- `--custom_set`: Provide a custom character set for password generation.
-- `--num_passwords`: Specify the number of passwords to generate.
-- `--file_path`: Specify the file path to save passwords (default: `passwords.txt`).
+- `-l`, `--length`: Specify the length of the generated passwords.
+- `-u`, `--min_uppercase`: Specify the minimum number of uppercase letters.
+- `-w`, `--min_lowercase`: Specify the minimum number of lowercase letters.
+- `-d`, `--min_digits`: Specify the minimum number of digits.
+- `-s`, `--min_symbols`: Specify the minimum number of symbols.
+- `-a`, `--ambiguous`: Include ambiguous characters (use 'y' for yes, 'n' for no).
+- `-c`, `--custom_set`: Provide a custom character set for password generation.
+- `-n`, `--num_passwords`: Specify the number of passwords to generate.
+- `-f`, `--file_path`: Specify the file path to save passwords if no directory supplied it will be saved in the working dir (default: `passwords.txt`).
 
 Example usage:
 
