@@ -114,7 +114,6 @@ def main():
     parser.add_argument('-c', '--custom_set', type=str, help='Custom character set')
     parser.add_argument('-n', '--num_passwords', type=int, help='Number of passwords to generate', default=1)
     parser.add_argument('-f', '--file_path', type=str, help='File path to save passwords', default="passwords.txt")
-    parser.add_argument('-H', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit')
 
     args = parser.parse_args()
 
