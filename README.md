@@ -131,7 +131,6 @@ The Password Generator script offers an interactive command-line interface. Foll
    ```bash
    python3 passGen.py
    ```
-
 4. Enter options for password generation, such as length, minimum uppercase letters, minimum lowercase letters, minimum digits, minimum symbols, whether to include ambiguous characters, and optionally provide a custom character set.
 
 5. The script will generate the specified number of passwords and save them to a file (default: `passwords.txt`), no need for a file extension either.
@@ -160,8 +159,16 @@ Alternatively, you can use command-line arguments to customize password generati
 
 Example usage:
 
+Generate 5 passwords of length 12 with at least 2 uppercase letters, 2 lowercase letters, 2 digits, and 2 symbols (including ambiguous characters) using the custom set "!@#$%", and save them to the file `my_passwords.txt`.
 ```bash
 python3 passGen.py -l 12 -u 2 -w 2 -d 2 -s 2 -a -n 5 -f my_passwords.txt
 ```
-
-This command will generate 5 passwords of length 12 with at least 2 uppercase letters, 2 lowercase letters, 2 digits, and 2 symbols (including ambiguous characters) using the custom set "!@#$%", and save them to the file `my_passwords.txt`.
+Generate 3 passwords of length 16, including ambiguous characters, and save to `my_passwords.txt`:
+```sh
+python passGen.py -n 3 -l 16 -a -f my_passwords.txt
+```
+Generate 2 passwords of length 10 using a custom character set:
+```sh
+python passGen.py -n 2 -l 10 -c
+# You will be prompted to enter the custom character set interactively
+```
