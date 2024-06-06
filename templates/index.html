@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <form method="post">
+        <label for="num_passwords">Number of Passwords:</label>
+        <input type="number" id="num_passwords" name="num_passwords" value="1" min="1" required><br>
+
+        <label for="length">Length:</label>
+        <input type="number" id="length" name="length" value="12" min="8" required><br>
+
+        <label for="min_uppercase">Minimum Uppercase Letters:</label>
+        <input type="number" id="min_uppercase" name="min_uppercase" value="1" min="0" required><br>
+
+        <label for="min_lowercase">Minimum Lowercase Letters:</label>
+        <input type="number" id="min_lowercase" name="min_lowercase" value="1" min="0" required><br>
+
+        <label for="min_digits">Minimum Digits:</label>
+        <input type="number" id="min_digits" name="min_digits" value="1" min="0" required><br>
+
+        <label for="min_symbols">Minimum Symbols:</label>
+        <input type="number" id="min_symbols" name="min_symbols" value="1" min="0" required><br>
+
+        <label for="use_ambiguous">Include Ambiguous Characters:</label>
+        <input type="checkbox" id="use_ambiguous" name="use_ambiguous"><br>
+
+        <label for="custom_set">Custom Character Set:</label>
+        <input type="text" id="custom_set" name="custom_set"><br>
+
+        <button type="submit">Generate Passwords</button>
+    </form>
+
+    {% if passwords %}
+        <h2>Generated Passwords</h2>
+        <ul>
+            {% for password in passwords %}
+                <li>{{ password }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
