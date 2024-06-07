@@ -4,44 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 16px;
+            width: 100%;
+            text-align: left;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        input[type="checkbox"] {
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            width: 100%;
+            text-align: left;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Password Generator</h1>
-    <form method="post">
-        <label for="num_passwords">Number of Passwords:</label>
-        <input type="number" id="num_passwords" name="num_passwords" value="1" min="1" required><br>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <form method="post">
+            <label for="num_passwords">Number of Passwords:</label>
+            <input type="number" id="num_passwords" name="num_passwords" value="1" min="1" required>
 
-        <label for="length">Length:</label>
-        <input type="number" id="length" name="length" value="12" min="8" required><br>
+            <label for="length">Length:</label>
+            <input type="number" id="length" name="length" value="12" min="8" required>
 
-        <label for="min_uppercase">Minimum Uppercase Letters:</label>
-        <input type="number" id="min_uppercase" name="min_uppercase" value="1" min="0" required><br>
+            <label for="min_uppercase">Minimum Uppercase Letters:</label>
+            <input type="number" id="min_uppercase" name="min_uppercase" value="1" min="0" required>
 
-        <label for="min_lowercase">Minimum Lowercase Letters:</label>
-        <input type="number" id="min_lowercase" name="min_lowercase" value="1" min="0" required><br>
+            <label for="min_lowercase">Minimum Lowercase Letters:</label>
+            <input type="number" id="min_lowercase" name="min_lowercase" value="1" min="0" required>
 
-        <label for="min_digits">Minimum Digits:</label>
-        <input type="number" id="min_digits" name="min_digits" value="1" min="0" required><br>
+            <label for="min_digits">Minimum Digits:</label>
+            <input type="number" id="min_digits" name="min_digits" value="1" min="0" required>
 
-        <label for="min_symbols">Minimum Symbols:</label>
-        <input type="number" id="min_symbols" name="min_symbols" value="1" min="0" required><br>
+            <label for="min_symbols">Minimum Symbols:</label>
+            <input type="number" id="min_symbols" name="min_symbols" value="1" min="0" required>
 
-        <label for="use_ambiguous">Include Ambiguous Characters:</label>
-        <input type="checkbox" id="use_ambiguous" name="use_ambiguous"><br>
+            <label for="use_ambiguous">Include Ambiguous Characters:</label>
+            <input type="checkbox" id="use_ambiguous" name="use_ambiguous">
 
-        <label for="custom_set">Custom Character Set:</label>
-        <input type="text" id="custom_set" name="custom_set"><br>
+            <label for="custom_set">Custom Character Set:</label>
+            <input type="text" id="custom_set" name="custom_set">
 
-        <button type="submit">Generate Passwords</button>
-    </form>
+            <button type="submit">Generate Passwords</button>
+        </form>
 
-    {% if passwords %}
-        <h2>Generated Passwords</h2>
-        <ul>
-            {% for password in passwords %}
-                <li>{{ password }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        {% if passwords %}
+            <h2>Generated Passwords</h2>
+            <ul>
+                {% for password in passwords %}
+                    <li>{{ password }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 </body>
 </html>
