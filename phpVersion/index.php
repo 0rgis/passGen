@@ -7,7 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            overflow: hidden;
+	        background-size: cover;
+	        background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -17,12 +21,13 @@
         }
 
         .container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 1.0);
             max-width: 600px;
             width: 100%;
+            margin-top: 20px;
             text-align: center;
         }
 
@@ -51,7 +56,7 @@
 
         label {
             margin-bottom: 5px;
-            color: #555;
+            color: black;
             font-size: 14px;
         }
 
@@ -113,7 +118,7 @@
             </div>
 
             <div class="form-group">
-                <label for="length">Length:</label>
+                <label for="length">Length(min 8):</label>
                 <input type="number" id="length" name="length" value="12" min="8" required>
             </div>
 
@@ -233,5 +238,19 @@
         }
         ?>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const hour = new Date().getHours();
+            let backgroundImage;
+            if (hour < 12) {
+                backgroundImage = 'url("morning.png")'; // Morning
+            } else if (hour < 18) {
+                backgroundImage = 'url("afternoon.png")'; // Afternoon
+            } else {
+                backgroundImage = 'url("evening.png")'; // Evening
+            }
+            document.body.style.backgroundImage = backgroundImage;
+        });
+    </script>
 </body>
 </html>
