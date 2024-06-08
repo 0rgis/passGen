@@ -13,12 +13,12 @@
             align-items: flex-start;
             height: 100vh;
             margin: 0;
-            padding-top: 50px;
+            padding-top: 20px;
         }
 
         .container {
             background-color: #fff;
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             max-width: 600px;
@@ -33,32 +33,38 @@
 
         form {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            display: flex;
             flex-direction: column;
-            align-items: center;
+            margin-bottom: 15px;
+            width: 48%;
         }
 
         label {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: #555;
-            font-size: 16px;
-            width: 100%;
-            text-align: left;
+            font-size: 14px;
         }
 
         input[type="number"],
         input[type="text"],
         input[type="checkbox"] {
-            margin-bottom: 20px;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
+        }
+
+        .full-width {
             width: 100%;
-            max-width: 500px;
         }
 
         button {
-            padding: 12px 20px;
+            padding: 10px 20px;
             background-color: #5cb85c;
             border: none;
             border-radius: 5px;
@@ -67,7 +73,6 @@
             cursor: pointer;
             transition: background-color 0.3s;
             width: 100%;
-            max-width: 500px;
         }
 
         button:hover {
@@ -95,31 +100,47 @@
 </head>
 <body>
     <div class="container">
-        <h1>Password Generator</h1>
+        <h1>Uncle Rats Password Generator</h1>
         <form method="post">
-            <label for="num_passwords">Number of Passwords:</label>
-            <input type="number" id="num_passwords" name="num_passwords" value="1" min="1" required>
+            <div class="form-group">
+                <label for="num_passwords">Number of Passwords:</label>
+                <input type="number" id="num_passwords" name="num_passwords" value="1" min="1" required>
+            </div>
 
-            <label for="length">Length:</label>
-            <input type="number" id="length" name="length" value="12" min="8" required>
+            <div class="form-group">
+                <label for="length">Length:</label>
+                <input type="number" id="length" name="length" value="12" min="8" required>
+            </div>
 
-            <label for="min_uppercase">Minimum Uppercase Letters:</label>
-            <input type="number" id="min_uppercase" name="min_uppercase" value="1" min="0" required>
+            <div class="form-group">
+                <label for="min_uppercase">Minimum Uppercase Letters:</label>
+                <input type="number" id="min_uppercase" name="min_uppercase" value="1" min="0" required>
+            </div>
 
-            <label for="min_lowercase">Minimum Lowercase Letters:</label>
-            <input type="number" id="min_lowercase" name="min_lowercase" value="1" min="0" required>
+            <div class="form-group">
+                <label for="min_lowercase">Minimum Lowercase Letters:</label>
+                <input type="number" id="min_lowercase" name="min_lowercase" value="1" min="0" required>
+            </div>
 
-            <label for="min_digits">Minimum Digits:</label>
-            <input type="number" id="min_digits" name="min_digits" value="1" min="0" required>
+            <div class="form-group">
+                <label for="min_digits">Minimum Digits:</label>
+                <input type="number" id="min_digits" name="min_digits" value="1" min="0" required>
+            </div>
 
-            <label for="min_symbols">Minimum Symbols:</label>
-            <input type="number" id="min_symbols" name="min_symbols" value="1" min="0" required>
+            <div class="form-group">
+                <label for="min_symbols">Minimum Symbols:</label>
+                <input type="number" id="min_symbols" name="min_symbols" value="1" min="0" required>
+            </div>
 
-            <label for="use_ambiguous">Include Ambiguous Characters:</label>
-            <input type="checkbox" id="use_ambiguous" name="use_ambiguous">
+            <div class="form-group full-width">
+                <label for="use_ambiguous">Include Ambiguous Characters:</label>
+                <input type="checkbox" id="use_ambiguous" name="use_ambiguous">
+            </div>
 
-            <label for="custom_set">Custom Character Set:</label>
-            <input type="text" id="custom_set" name="custom_set">
+            <div class="form-group full-width">
+                <label for="custom_set">Custom Character Set:</label>
+                <input type="text" id="custom_set" name="custom_set">
+            </div>
 
             <button type="submit">Generate Passwords</button>
         </form>
