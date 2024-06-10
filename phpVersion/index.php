@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8L64ZBYXXW"></script>
+<script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            /* background-color: #f4f4f4; */
+            background-image: url('/assets/img/bg-3.png');
+	        overflow: hidden;
 	        background-size: cover;
 	        background-repeat: no-repeat;
             background-attachment: fixed;
-            background-position: center;
+	        background-position: center;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             height: 100vh;
             margin: 0;
-            padding-top: 20px;
+            padding-top: 100px;
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 1.0);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
-            margin-top: 20px;
             text-align: center;
         }
 
@@ -56,7 +59,7 @@
 
         label {
             margin-bottom: 5px;
-            color: black;
+            color: #555;
             font-size: 14px;
         }
 
@@ -110,7 +113,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Password Generator</h1>
+        <h1>Uncle Rat's Password Generator</h1>
         <form method="post">
             <div class="form-group">
                 <label for="num_passwords">Number of Passwords:</label>
@@ -118,7 +121,7 @@
             </div>
 
             <div class="form-group">
-                <label for="length">Length(min 8):</label>
+                <label for="length">Length:</label>
                 <input type="number" id="length" name="length" value="12" min="8" required>
             </div>
 
@@ -238,19 +241,5 @@
         }
         ?>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const hour = new Date().getHours();
-            let backgroundImage;
-            if (hour < 12) {
-                backgroundImage = 'url("morning.png")'; // Morning
-            } else if (hour < 18) {
-                backgroundImage = 'url("afternoon.png")'; // Afternoon
-            } else {
-                backgroundImage = 'url("evening.png")'; // Evening
-            }
-            document.body.style.backgroundImage = backgroundImage;
-        });
-    </script>
 </body>
 </html>
