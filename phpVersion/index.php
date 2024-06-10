@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8L64ZBYXXW"></script>
-<script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            /* background-color: #f4f4f4; */
-            background-image: url('/assets/img/bg-3.png');
-	        overflow: hidden;
-	        background-size: cover;
-	        background-repeat: no-repeat;
-            background-attachment: fixed;
-	        background-position: center;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -113,7 +105,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Uncle Rat's Password Generator</h1>
+        <h1>Password Generator</h1>
         <form method="post">
             <div class="form-group">
                 <label for="num_passwords">Number of Passwords:</label>
